@@ -1,0 +1,18 @@
+server:
+  port: 9020
+
+# per default sind nur health und info an
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  #autoconfig wie hier:
+  #  spring:
+  #  artemis:
+  #    mode: EMBEDDED
+  #    host: localhost
+  #    port: 61616
+  #    embedded:
+  #      enabled: true

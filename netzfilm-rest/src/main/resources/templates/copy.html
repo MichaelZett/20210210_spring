@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kopien bestellen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="${message} ? ${message} : Hallo"/>
+<form method="post" th:object="${copy}">
+    <div class="form-group">
+        <label for="movieId">Wähle einen Film:</label>
+        <select id="movieId" name="movieId" th:field="*{movieId}">
+            <option th:each="movie : ${movies}" th:value="${movie.id}" th:utext="${movie.title}"/>
+        </select>
+        <label for="type">Wähle einen Typ:</label>
+        <select id="type" name="type" th:field="*{type}">
+            <option th:each="type : ${types}" th:value="${type.name}" th:utext="${type.name}"/>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Bestellen</button>
+</form>
+</body>
+</html>

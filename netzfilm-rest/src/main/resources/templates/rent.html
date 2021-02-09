@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Eine Leihe tätigen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="${message} ? ${message} : Hallo"/>
+<form method="post" th:object="${rent}">
+    <div class="form-group">
+        <label for="id">Wähle einen Film:</label>
+        <select id="id" name="id" th:field="*{id}">
+            <option th:each="copy : ${copies}" th:value="${copy.id}" th:utext="${copy.title}"/>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Leihen</button>
+</form>
+</body>
+</html>

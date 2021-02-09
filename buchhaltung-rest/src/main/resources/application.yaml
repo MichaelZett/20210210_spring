@@ -1,0 +1,19 @@
+server:
+  port: 9010
+
+# Swagger zeigt auch actuator
+springdoc:
+  show-actuator: true
+
+# ein paar configs für jackson, mit denen ich gute Erfahrung gemacht habe
+spring:
+  jackson:
+    time-zone: UTC
+    default-property-inclusion: non_null
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      READ_UNKNOWN_ENUM_VALUES_AS_NULL: true
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    generator:
+      WRITE_BIGDECIMAL_AS_PLAIN: true

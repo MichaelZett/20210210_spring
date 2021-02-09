@@ -1,0 +1,42 @@
+#Nicht n�tig, aber so einfach geht das:
+server:
+  port: 9000
+
+# per default sind nur health und info an
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# h2-web-console anschalten
+spring:
+  h2:
+    console:
+      enabled: true
+  #  Auto configured von spring-boot
+  datasource:
+    url: 'jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE' # 'jdbc:h2:file:/data/demo;DB_CLOSE_ON_EXIT=FALSE'
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+
+  # per default an aber auch auschaltbar
+  jpa:
+    generate-ddl: true
+    # per default
+    hibernate:
+      ddl-auto: create-drop #none, validate, update,
+    open-in-view: false
+
+  # ein paar configs für jackson, mit denen ich gute Erfahrung gemacht habe
+  jackson:
+    time-zone: UTC
+    default-property-inclusion: non_null
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      READ_UNKNOWN_ENUM_VALUES_AS_NULL: true
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    generator:
+      WRITE_BIGDECIMAL_AS_PLAIN: true
