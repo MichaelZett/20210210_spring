@@ -30,8 +30,8 @@ class MovieExternalServiceImplTest {
     public void shouldReturnQuoteFromRemoteSystem() {
         String response =
                 "[" +
-                        "{\"title\":\"The movie\",\"releaseDate\":\"2020-03-20\"}" +
-                        "]";
+                    "{\"title\":\"The movie\",\"releaseDate\":\"2020-03-20\"}" +
+                "]";
 
         this.mockRestServiceServer
                 .expect(MockRestRequestMatchers.requestTo("/movie/"))
