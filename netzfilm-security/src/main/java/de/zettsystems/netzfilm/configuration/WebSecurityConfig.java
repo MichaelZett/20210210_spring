@@ -25,7 +25,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable() // ausschalten,für unsere Anwendung nicht notwendig
                 .authorizeRequests()
                 .antMatchers("/copy/**").hasRole("ADMIN") // Matcher in richtiger Reihenfolge, nur admins dürfen Kopien bestellen usw.
-                .antMatchers("/h2-console/**").hasRole("ADMIN")
                 .antMatchers("/login*").permitAll() // alle dürfen auf /login
                 .anyRequest().authenticated() // alle Authentifizierte dürfen auch den Rest
                 .and()

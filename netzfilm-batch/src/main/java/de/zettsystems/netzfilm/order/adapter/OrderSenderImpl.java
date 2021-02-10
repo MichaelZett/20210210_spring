@@ -37,7 +37,7 @@ public class OrderSenderImpl implements OrderSender {
     private static final Logger LOG = LoggerFactory.getLogger(OrderSenderImpl.class);
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
     private static final List<String> ORDERS = new LinkedList<>();
-    private final String FILE_NAME = "deliveries/%s_delivery.csv";
+    private final String FILE_NAME = "c:/temp/%s_delivery.csv";
 
     private final MovieRepository movieRepository;
     private final JobLauncher jobLauncher;
@@ -91,7 +91,7 @@ public class OrderSenderImpl implements OrderSender {
         // make unique JobParameters so now instance of job can be started
         JobParameters jobParameters = new JobParametersBuilder()
                 .addString("source", "Fake Delivery")
-                .addString("pathToFiles", "/deliveries/*_delivery.csv")
+                .addString("pathToFiles", "file:c:/temp/*_delivery.csv")
                 .addDate("date", Date.from(Instant.now())) // needed for uniqueness
                 .toJobParameters();
         try {
